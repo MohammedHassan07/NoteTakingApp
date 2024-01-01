@@ -1,0 +1,169 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "NoteTakingApp",
+    "dateExported": "2024-01-01T18:50:03.940Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "fe4b952e-9dde-4f94-9426-f93bbb95dc44",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-01-01T16:34:05.404Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "Note",
+            "containerId": "",
+            "created": "2024-01-01T16:34:33.660Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "51d0fe01-1cbb-451f-a859-9ef7ead004f8",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "fe4b952e-9dde-4f94-9426-f93bbb95dc44",
+            "name": "registerUser",
+            "url": "http://localhost:3000/user/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-01-01T16:34:14.635Z",
+            "modified": "2024-01-01T18:23:28.923Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"malfoy\",\n  \"email\": \"malfoy@xyz.com\",\n  \"password\": \"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e536d7a1-6c58-4550-9c0c-e85169c1bc60",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "fe4b952e-9dde-4f94-9426-f93bbb95dc44",
+            "name": "loginUser",
+            "url": "http://localhost:3000/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-01T16:34:28.308Z",
+            "modified": "2024-01-01T18:23:39.947Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"email\": \"malfoy@xyz.com\",\n  \"password\": \"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "010d52a2-2bf1-4d6f-abf7-f5c39ce23814",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "addNote",
+            "url": "http://localhost:3000/note/add-note",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-01T16:34:39.090Z",
+            "modified": "2024-01-01T18:24:21.858Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"malfoy -->install instagram\",\n  \"content\": \"Create instagram to save your work\", \n  \"token\": \"eyJhbGciOiJIUzI1NiJ9.bWFsZm95QHh5ei5jb20.BTajh1T4BNXgFWWAjzF50k0LfPY3mfxp3kgUdFvbwtA\"\n\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b4a79cd6-9be5-4bdd-b32d-8a4c08f8543f",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "deleteNote ",
+            "url": "http://localhost:3000/note/delete-note?id=65930104dd06a57865309fb3",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-01T16:34:41.598Z",
+            "modified": "2024-01-01T18:14:47.289Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "65930104dd06a57865309fb3",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiJ9.aGVybW9pbmVAeHl6LmNvbQ.zlomtFAv5zZGREoZeTrflKC4NALHxOC_wbnQ_aElT0M\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "55f108b1-36a3-4ba9-96ee-f3e17c2cede4",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "getSingleNote",
+            "url": "http://localhost:3000/note/get-single-note?id=65930355be65318dc8f78b94",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-01T16:35:05.419Z",
+            "modified": "2024-01-01T18:26:45.810Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "65930355be65318dc8f78b94",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiJ9.bWFsZm95QHh5ei5jb20.BTajh1T4BNXgFWWAjzF50k0LfPY3mfxp3kgUdFvbwtA\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ea35a2ff-48e4-4ccb-bbcd-28608e5cd1b2",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "getAllNotes",
+            "url": "http://localhost:3000/note/get-notes",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-01-01T16:35:12.098Z",
+            "modified": "2024-01-01T18:27:02.274Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"token\": \"eyJhbGciOiJIUzI1NiJ9.bWFsZm95QHh5ei5jb20.BTajh1T4BNXgFWWAjzF50k0LfPY3mfxp3kgUdFvbwtA\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f0ab3f6-31e1-4c27-a435-2a72bc864a55",
+            "colId": "2f2ed5a1-26a8-405a-b28d-a1970061ee51",
+            "containerId": "a5d6990b-9a02-43c6-9c42-5043222c01b8",
+            "name": "updateNote",
+            "url": "http://localhost:3000/note/update-note",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-01-01T16:35:20.586Z",
+            "modified": "2024-01-01T18:25:40.434Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"malfoy -->install instagram\",\n  \"newContent\": \"create instagram account to enjoy the memes with friends and relief your self\",\n  \"token\": \"eyJhbGciOiJIUzI1NiJ9.bWFsZm95QHh5ei5jb20.BTajh1T4BNXgFWWAjzF50k0LfPY3mfxp3kgUdFvbwtA\"\n\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
