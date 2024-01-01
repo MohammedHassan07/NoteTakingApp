@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6592ee433758b283017451f5"
+  },
+  "name": "Potter",
+  "email": "potter@xyz.com",
+  "password": "$2a$10$zqPdYTTDvCHQ4RGaUzHMHOQEOzWoV8JWAgHT0ew7git2WdthoLNpm",
+  "createdAt": {
+    "$date": "2024-01-01T16:54:27.055Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T16:54:27.055Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6592ef37daf7a88ae7e8952f"
+  },
+  "name": "Rohn",
+  "email": "rohn@xyz.com",
+  "password": "$2a$10$sMYTO46SbYtPFl4tcvMSyO1vXDraDRLeaWBT2jVJq4fMUVXVZgT8W",
+  "createdAt": {
+    "$date": "2024-01-01T16:58:31.666Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T16:58:31.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6592ef5d3481be036b4aff71"
+  },
+  "name": "Hermoine",
+  "email": "hermoine@xyz.com",
+  "password": "$2a$10$v2xkWWh.qm4ZgFduY1EOTe21YLTOYEctGtMflr6fnXFBg.WLrhFK6",
+  "createdAt": {
+    "$date": "2024-01-01T16:59:09.071Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T16:59:09.071Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65930320be65318dc8f78b90"
+  },
+  "name": "malfoy",
+  "email": "malfoy@xyz.com",
+  "password": "$2a$10$3t8g0UglhVZnwt7mDdeWoOU3Hm1eComXYDc25puzyL4PDYMJF4UrW",
+  "createdAt": {
+    "$date": "2024-01-01T18:23:28.897Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T18:23:28.897Z"
+  },
+  "__v": 0
+}]
