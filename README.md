@@ -15,6 +15,7 @@ MongoDB - for database
 ## Note
 The .env file is pushed on github for reference you can change it   
 accoeding to your need    
+Use API_NoteTakingApp.json for API references 
 
 ## Project setup
 1. Download the zip and extract it or clone this repository  
