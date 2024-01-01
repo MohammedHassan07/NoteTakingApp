@@ -12,9 +12,13 @@ the operation.
 ExpressJS - for server  
 MongoDB - for database  
 
+## Note
+The .env file is pushed on github for reference you can change it   
+accoeding to your need    
+
 ## Project setup
-1 Download the zip and extract it or clone this repository  
-2 Go to the NoteTaking directory  
-3 Open terminal and type ```npm install``` or ```npm i```  
-4 Now type ```npm start``` for starting the server  
-5 To start development server ```npm run dev```  
+1. Download the zip and extract it or clone this repository  
+2. Go to the NoteTaking directory  
+3. Open terminal and type ```npm install``` or ```npm i```  
+4. Now type ```npm start``` for starting the server  
+5. To start development server ```npm run dev```  
