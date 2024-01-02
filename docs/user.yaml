@@ -1,0 +1,102 @@
+swagger: "2.0"
+info:
+  title: Note Taking API Docs
+  description: A documentation of Note taking app built in Express.Js and MongoDB with user authentication
+  version: 1.0
+  contact:
+    email: mhassancs260@gmail.com
+
+servers:
+  - url: "http://localhost:3000"
+    description: A local development server
+
+schemes:
+  - http
+
+paths:
+  /user/register:
+    post:
+      summary: Register a new user
+      description: Endpoint to register a new user.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: User registration
+          description: The user to register.
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        201:
+          description: User registered successfully.
+          schema:
+            $ref: '#/components/schema/response'
+            examples:
+              flag: true
+              message: User Logged in successfull
+        500:
+          description: Internal server error.
+          schema:
+            $ref: '#/components/schema/response'
+          examples:
+            flag: false
+            message: Internal Server Error
+
+  /user/login:
+    post:
+      summary: Log in a user
+      description: Endpoint to login the user
+      consumes:
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - in: body
+          name: User login
+          description: A user to login
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: User Logged in successfully.
+          schema:
+            $ref: '#/components/schema/response'
+          examples:
+            flag: true
+            message: User Logged in successfully.
+        500:
+          description:  Internal Server Error.
+          schema:
+            $ref: '#/components/schema/response'
+          examples:
+            $ref: '#errorComponet'
+
+components:
+  schema:
+    responses:
+      type: object
+      properties:
+        flag:
+          type: boolean
+        message:
+          type: string
+
+errorComponet:
+  flag: false
+  message: Internal Server Error

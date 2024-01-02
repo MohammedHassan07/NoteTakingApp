@@ -11,13 +11,17 @@ app.listen(PORT, () => {
 })
 
 // connect to DB
-connectToDatabase()
+// connectToDatabase()
 
 app.use(express.json())
 
 // Routes
 const userRoute = require('./routes/user.routes')
 const noteRoute = require('./routes/note.routes')
+
+// docs route
+const docsRoute = require('./routes/api.docs.routes')
+app.use(docsRoute)
 
 app.use('/user', userRoute)
 app.use('/note', noteRoute)
