@@ -1,4 +1,4 @@
-# Note Taking Projec
+# Note Taking Project
 
 ## Description
 This app consist of functionalites like add note, update existing note,  
