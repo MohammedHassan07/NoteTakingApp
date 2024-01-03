@@ -23,7 +23,7 @@ const addNote = async (req, res) => {
 
         if (!user) {
 
-            return res.json({ flag: false, message: 'user not present try to log in again' })
+            return res.status(401).json({ flag: false, message: 'user not present try to log in again' })
         }
 
         const newNote = new noteModel({ user: user._id, title, content })
@@ -49,7 +49,7 @@ const getSingleNote = async (req, res) => {
 
         if (!user) {
 
-            return res.json({ flag: false, message: 'user not present try to log in again' })
+            return res.status(401).json({ flag: false, message: 'user not present try to log in again' })
         }
 
         if (!note) {
@@ -76,7 +76,7 @@ const getAllNotes = async (req, res) => {
 
         if (!user) {
 
-            return res.json({ flag: false, message: 'user not present try to log in again' })
+            return res.status(401).json({ flag: false, message: 'user not present try to log in again' })
         }
         if (!notes) {
 
@@ -105,7 +105,7 @@ const updateNote = async (req, res) => {
 
         if (!user) {
 
-            return res.json({ flag: false, message: 'user not present try to log in again' })
+            return res.status(401).json({ flag: false, message: 'user not present try to log in again' })
         }
         if (!note) {
 
@@ -141,7 +141,7 @@ const deleteNote = async (req, res) => {
 
         if (!user) {
 
-            return res.json({ flag: false, message: 'user not present try to log in again' })
+            return res.status(401).json({ flag: false, message: 'user not present try to log in again' })
         }
         const noteData = await noteModel.findOne({ _id: noteId, user: user._id })
 

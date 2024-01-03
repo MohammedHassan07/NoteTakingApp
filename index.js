@@ -8,10 +8,11 @@ const PORT = process.env.PORT || 9999
 app.listen(PORT, () => {
 
     console.log(`Server is up at ${PORT}`)
+
+    // connect to DB
+    connectToDatabase()
 })
 
-// connect to DB
-// connectToDatabase()
 
 app.use(express.json())
 

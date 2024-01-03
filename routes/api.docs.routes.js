@@ -1,15 +1,15 @@
-const express = require('express')
-const swaggerUI = require('swagger-ui-express')
-const yaml = require('yamljs')
-const path = require('path')
+const express = require('express');
+const swaggerUI = require('swagger-ui-express');
+const yaml = require('yamljs');
+const path = require('path');
 
-const swaggerUserDocs = yaml.load(path.join(__dirname, '../docs/user.yaml'))
-const swaggerNoteDocs = yaml.load(path.join(__dirname, '../docs/note.yaml'))
+const userDocs = yaml.load(path.join(__dirname, '../docs/user.yaml'));
+const noteDocs = yaml.load(path.join(__dirname, '../docs/note.yaml'));
 
-const route = express.Router()
+const route = express.Router();
 
-route.use('/api-user', swaggerUI.serve, swaggerUI.setup(swaggerUserDocs))
+// Use different routes for user and note documentation
+route.use('/api-user', swaggerUI.serve, swaggerUI.setup(userDocs));
+route.use('/api-note', swaggerUI.serve, swaggerUI.setup(noteDocs));
 
-route.use('/api-note', swaggerUI.serve, swaggerUI.setup(swaggerNoteDocs))
-
-module.exports = route
+module.exports = route;
