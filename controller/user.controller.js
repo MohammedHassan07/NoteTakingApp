@@ -15,7 +15,7 @@ const register = async (req, res) => {
 
         if (user) {
 
-            res.json({ flag: false, message: 'User already exixts' })
+            res.status(400).json({ flag: false, message: 'User already exixts' })
         
         } else {
 
@@ -44,14 +44,14 @@ const login = async (req, res) => {
 
     if (!user) {
 
-        res.json({ flag: false, message: 'User is not present with this email, Create Account' })
+        res.status(401).json({ flag: false, message: 'User is not present with this email, Create Account' })
     } else {
 
         const verify = await verifyPassword(password, user.password)
        
         if (!verify) {
 
-            res.json({ flag: false, message: 'invalid credintials' })
+            res.status(401).json({ flag: false, message: 'invalid credintials' })
         } else {
 
             // generate token

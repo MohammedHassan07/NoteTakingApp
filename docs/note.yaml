@@ -19,6 +19,7 @@ definitions:
       content:
         type: string
 
+
 parameters:
   NoteIdParam:
     in: query
@@ -54,9 +55,105 @@ responses:
           type: Internal Server Error
 
 paths:
+        
+  /user/register:
+    post:
+      summary: 'Register a new user'
+      tags:
+        - 'User'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              name:
+                type: 'string'
+              email:
+                type: 'string'
+              password:
+                type: 'string'
+      responses:
+        '201':
+          description: 'User registered successfully'
+          schema:
+            type: 'object'
+            properties:
+              flag:
+                type: 'boolean'
+              message:
+                type: 'string'
+        '400':
+          description: 'User already exists'
+          schema:
+            type: 'object'
+            properties:
+              flag:
+                type: 'boolean'
+              message:
+                type: 'string'
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
+  /user/login:
+    post:
+      summary: 'Login an existing user'
+      tags:
+        - 'User'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              email:
+                type: 'string'
+              password:
+                type: 'string'
+      responses:
+        '200':
+          description: 'User logged in successfully'
+          schema:
+            type: 'object'
+            properties:
+              flag:
+                type: 'boolean'
+              message:
+                type: 'string'
+              token:
+                type: 'string'
+        '401':
+          description: 'Invalid credentials or user not found'
+          schema:
+            type: 'object'
+            properties:
+              flag:
+                type: 'boolean'
+              message:
+                type: 'string'
+        
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
   /note/add-note:
     post:
       summary: Add a new note
+      tags: 
+        - Note
       parameters:
         - in: body
           name: note
@@ -86,6 +183,8 @@ paths:
   /note/get-single-note:
     post:
       summary: Get a single note by ID
+      tags: 
+        - Note
       parameters:
         - $ref: '#/parameters/NoteIdParam'
         - $ref: '#/parameters/TokenHeader'
@@ -93,7 +192,7 @@ paths:
         '200':
           description: Note is present
           schema:
-            $ref: '#/definitions/SuccessResponse'
+            $ref: '#responses/SuccessResponse'
             properties:
               note:
                 $ref: '#/definitions/NoteModel'
@@ -108,13 +207,15 @@ paths:
   /note/get-notes:
     post:
       summary: Get all notes for the user
+      tags: 
+        - Note
       parameters:
         - $ref: '#/parameters/TokenHeader'
       responses:
         '200':
           description: All notes
           schema:
-            $ref: '#/definitions/SuccessResponse'
+            $ref: '#responses/SuccessResponse'
             properties:
               notes:
                 type: array
@@ -131,6 +232,8 @@ paths:
   /note/update-note:
     post:
       summary: Update a note by title
+      tags: 
+        - Note
       parameters:
         - in: body
           name: note
@@ -148,7 +251,7 @@ paths:
         '200':
           description: Note updated successfully
           schema:
-            $ref: '#/definitions/SuccessResponse'
+            $ref: '#responses/SuccessResponse'
             properties:
               oldData:
                 $ref: '#/definitions/NoteModel'
@@ -163,6 +266,8 @@ paths:
   /note/delete-note:
     post:
       summary: Delete a note by ID
+      tags: 
+        - Note
       parameters:
         - $ref: '#/parameters/NoteIdParam'
         - $ref: '#/parameters/TokenHeader'
@@ -170,7 +275,7 @@ paths:
         '200':
           description: Note deleted successfully
           schema:
-            $ref: '#/definitions/SuccessResponse'
+            $ref: '#responses/SuccessResponse'
             properties:
               deletedData:
                 $ref: '#/definitions/NoteModel'
@@ -181,3 +286,5 @@ paths:
           description: Server Error
           schema:
             $ref: '#responses/ErrorResponse'
+
+      
