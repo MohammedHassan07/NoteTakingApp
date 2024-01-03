@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Express Note API
+  description: API documentation for a simple note-taking application built with Express.js
+  contact:
+    email: mhassancs260@gmail.com
+
+definitions:
+  NoteModel:
+    type: object
+    properties:
+      _id:
+        type: string
+      user:
+        type: string
+      title:
+        type: string
+      content:
+        type: string
+
+parameters:
+  NoteIdParam:
+    in: query
+    name: id
+    type: string
+    required: true
+
+  TokenHeader:
+    in: header
+    name: token
+    type: string
+    description: Bearer token for authentication
+
+responses:
+  SuccessResponse:
+    description: Operation was successful
+    schema:
+      type: object
+      properties:
+        flag:
+          type: boolean
+        message:
+          type: string
+
+  ErrorResponse:
+    description: Operation was failed due to Server ErrorResponse
+    schema:
+      type: object
+      properties:
+        flag: 
+          type: boolean
+        message:  
+          type: Internal Server Error
+
+paths:
+  /note/add-note:
+    post:
+      summary: Add a new note
+      parameters:
+        - in: body
+          name: note
+          description: Note details
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+        - $ref: '#/parameters/TokenHeader'
+      responses:
+        '201':
+          description: Note added successfully
+          schema:
+            $ref: '#responses/SuccessResponse'
+            properties:
+              newData:
+                $ref: '#/definitions/NoteModel'
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
+  /note/get-single-note:
+    post:
+      summary: Get a single note by ID
+      parameters:
+        - $ref: '#/parameters/NoteIdParam'
+        - $ref: '#/parameters/TokenHeader'
+      responses:
+        '200':
+          description: Note is present
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+            properties:
+              note:
+                $ref: '#/definitions/NoteModel'
+        '401':
+          description: User not present or unauthorized
+        
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
+  /note/get-notes:
+    post:
+      summary: Get all notes for the user
+      parameters:
+        - $ref: '#/parameters/TokenHeader'
+      responses:
+        '200':
+          description: All notes
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+            properties:
+              notes:
+                type: array
+                items:
+                  $ref: '#/definitions/NoteModel'
+        '401':
+          description: User not present or unauthorized
+
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
+  /note/update-note:
+    post:
+      summary: Update a note by title
+      parameters:
+        - in: body
+          name: note
+          description: Updated note details
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              newContent:
+                type: string
+        - $ref: '#/parameters/TokenHeader'
+      responses:
+        '200':
+          description: Note updated successfully
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+            properties:
+              oldData:
+                $ref: '#/definitions/NoteModel'
+        '401':
+          description: User not present or unauthorized
+
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'
+
+  /note/delete-note:
+    post:
+      summary: Delete a note by ID
+      parameters:
+        - $ref: '#/parameters/NoteIdParam'
+        - $ref: '#/parameters/TokenHeader'
+      responses:
+        '200':
+          description: Note deleted successfully
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+            properties:
+              deletedData:
+                $ref: '#/definitions/NoteModel'
+        '401':
+          description: User not present or unauthorized
+
+        '500':
+          description: Server Error
+          schema:
+            $ref: '#responses/ErrorResponse'

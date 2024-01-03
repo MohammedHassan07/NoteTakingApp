@@ -10,7 +10,7 @@ app.listen(PORT, () => {
     console.log(`Server is up at ${PORT}`)
 
     // connect to DB
-    connectToDatabase()
+    // connectToDatabase()
 })
 
 
